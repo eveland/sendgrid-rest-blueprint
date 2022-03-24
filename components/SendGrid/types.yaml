@@ -15,7 +15,7 @@ node_types:
     interfaces:
       cloudify.interfaces.lifecycle:
         create:
-           implementation: rest_plugin.rest_plugin.tasks.execute
+           implementation: rest.cloudify_rest.tasks.execute
            inputs:
              template_file:
                default: "components/SendGrid/templates/send.yaml"
@@ -26,7 +26,7 @@ node_types:
                  email: { get_property: [SELF, email] }
                  name:  { get_property: [SELF, name] }
         delete:
-           implementation: rest_plugin.rest_plugin.tasks.execute
+           implementation: rest.cloudify_rest.tasks.execute
            inputs:
              template_file:
                default: "components/SendGrid/templates/send.yaml"

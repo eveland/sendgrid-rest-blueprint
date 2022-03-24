@@ -8,14 +8,13 @@ rest_calls:
     payload:
       personalizations:
         - to: [{ "email": "{{email}}", "name":"{{name}}" }]
-          subject: "{{subject}}"
+          dynamic_template_data:       
+            cloudify-subject: "{{subject}}"
+            cloudify-content: "<html><h1>Testing</h1></html>"
       from:
         name: "{{name}}"
         email: "{{email}}"
-      subject: "{{subject}}"
-      content:
-        - type: "text/html"
-          value: "<html><h1>Test</h1></html>"
+      template_id: 'd-92ec82d0d3004dd7b71a3748e21051b7'
 
     response_format: raw
     response_expectation:
